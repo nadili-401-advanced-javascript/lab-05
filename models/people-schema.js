@@ -7,7 +7,7 @@ const peopleSchema = mongoose.Schema({
   firstName: { required: true, type: String },
   lastName: { required: true, type: String },
   _team: { type: mongoose.Schema.Types.ObjectId },
-  birthday: { required: true, type: Date },
+  birthday: { required: true, type: String },
   likes: { required: true, type: String, lowercase: true, enum: ['cats', 'dogs', 'none', 'both'] },
 });
 
