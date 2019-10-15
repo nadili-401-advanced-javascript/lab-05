@@ -3,6 +3,14 @@
 const mongoose = require('mongoose');
 const db = 'mongodb://127.0.0.1:27017/app';
 
+// File from console input
+let args = process.argv;
+if (args.length === 2){
+  printCount();
+} else if (args.length === 2){
+  findItem(); //search for first name in people and for name in teams
+};
+
 const configs = {
   useNewUrlParser: true,
   useUnifiedTopology: true
