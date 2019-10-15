@@ -17,16 +17,20 @@ let people = new People();
 
 const makePerson = async (person) => {
 
+  let made = await people.create(person);
+  console.log(made);
+  return made;
+}
+
+const findPerson = async (person) => {
   let found = await people.getByQuery(person);
   console.log(found);
   return found;
 }
 
 makePerson({
-  firstName: 'Sarah',
-  lastName: 'Smalls'
+  firstName: 'Nadya',
+  lastName: 'Ilinskaya'
 }).then(() => {
-  console.log("i'm here!");
-  mongoose.connection.close();
-
-});
+  console.log("Person created!");
+}).then(()=> mongoose.connection.close());
