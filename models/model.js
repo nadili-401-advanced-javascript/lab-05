@@ -25,26 +25,11 @@ class Model {
     else return this.schema.find({});
   }
 
-  // CRUD: update - you usually only update something that exists
-  // if something exists, it has an id
-  update(id, item) {
-    // change a piece of the data
-    // change data where data.id === id
-    // [async] write data to file
-    // make sure your change is in this.database
-    // write this.database to file
-    // look up findByIdAndUpdate
-    
-
-  }
-
-  // CRUD: delete
-  delete(id) {
-    // find this.database object where object.id === id (forEach??)
-    // remove that object (map??)
-    // [async] write the new (smaller) this.database to the file
-    // look up findByIdAndDelete
+  print() {
+      let docs = this.schema.find();
+      console.log(JSON.stringify(docs));
   }
 }
+
 
 module.exports = Model;

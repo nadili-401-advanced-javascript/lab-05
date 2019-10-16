@@ -26,7 +26,12 @@ const People = require('./models/people.js');
 // };
 
 
-
+const print = async () => {
+  let people = new People();
+   let peoplePrint = await people.print();
+   console.log(peoplePrint);
+   return peoplePrint;
+}
 
 const makePerson = async (person) => {
   let people = new People();
@@ -71,9 +76,23 @@ const findTeam = async (team) => {
 //   console.log("Person created!");
 // }).then(()=> mongoose.connection.close());
 
-makeTeam({
-  name:  'Red Heron',
-  color: 'red'
-}).then(() => {
-  console.log("Team created!");
-}).then(()=> mongoose.connection.close());
+// makePerson({
+//   firstName: 'Morgan',
+//   lastName: 'Show',
+//   team: 0,
+//   birthday: '05/05/2004',
+//   likes: 'dogs'
+// }).then(() => {
+//   console.log("Person created!");
+// }).then(()=> mongoose.connection.close());
+
+// makeTeam({
+//     name: 'Yellow Rhino',
+//     color: 'yellow'  
+// }).then(() => {
+//   console.log("Team created!");
+// }).then(()=> mongoose.connection.close());
+
+print().then(() => {
+    console.log("print is done!");
+  }).then(()=> mongoose.connection.close());
