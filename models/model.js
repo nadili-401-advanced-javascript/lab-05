@@ -10,12 +10,29 @@ class Model {
     let validatedItem = new this.schema(item);
     return validatedItem.save();
   }
+  delete (_id, record){
+    let newRecord = new this.schema(record);
+    return newRecord.save();
+  }
+  update(record){
+    let newRecord = new this.schema(record);
+    return newRecord.save();
+  }
 
   // CRUD: read / search - we don't know if it exists
   get(_id) {
     // return a Promise!
     if (_id) return this.schema.findOne({ _id });
     else return this.schema.findOne({});
+  }
+  
+  getFromField(query){
+    if(query) {
+      return this.schema.find(query);
+    }
+    else {
+      return this.schema.find({});
+    }
   }
 
   getByQuery(query) {
@@ -25,9 +42,14 @@ class Model {
     else return this.schema.find({});
   }
 
-  print() {
-      let docs = this.schema.find();
-      console.log(JSON.stringify(docs));
+  count() {
+      return this.schema.countDocuments();
+  }
+
+
+print() {
+      let docs = this.schema.find();    
+      return docs;
   }
 }
 
