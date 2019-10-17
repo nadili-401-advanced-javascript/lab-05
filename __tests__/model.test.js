@@ -1,7 +1,5 @@
 const Model = require('../models/model.js');
 const schema = require('../models/people-schema.js');
-// const Teams = require('../models/teams.js');
-// const People = require('../models/people.js');
 const supertester = require('./supertester.js');
 
 let model = new Model(schema);
@@ -17,9 +15,11 @@ describe('Model', () => {
     expect(person).toBeDefined();
   });
 
-  xit('can read', () => {});
+  test('can read', async () => {
+    let query = {firstName: 'Nadya'}
+    let person = await model.getFromField(query);
+    expect(person).toBeDefined();
+  });
 
-  xit('can update', () => {});
 
-  xit('can delete', () => {});
 });

@@ -26,7 +26,11 @@
 * Unit Tests: 'npm test'
 * Lint Tests: 'npm run lint' 
 
-(!!!NOTE!!! - async files are included in eslintignore as linter does not async-await recognize syntaxes)
+(!!!NOTE!!! - async files are included in eslintignore as linter does not async-await recognize syntaxes:
+model.js
+supertester.js
+model.test.js 
+)
 
 
 

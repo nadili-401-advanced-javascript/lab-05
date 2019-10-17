@@ -4,6 +4,7 @@
   "description": "",
   "main": "players-schema.js",
   "scripts": {
+    "lint": "eslint **/*.js",
     "test": "jest --verbose",
     "test-watch": "jest --watchAll --verbose"
   },
@@ -14,6 +15,7 @@
   "author": "Nadya",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^6.5.1",
     "faker": "^4.1.0",
     "jest": "^24.9.0",
     "mongodb": "^3.3.2",
