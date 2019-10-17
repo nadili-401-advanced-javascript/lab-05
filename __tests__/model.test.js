@@ -1,19 +1,25 @@
 const Model = require('../models/model.js');
-const Teams = require('../models/teams.js');
-const People = require('../models/people.js');
+const schema = require('../models/people-schema.js');
 const supertester = require('./supertester.js');
 
-let people = new People();
+let model = new Model(schema);
 
 describe('Model', () => {
-  test('can create', () => {
-    let person = people.create({ firstName: 'Test', lastName: 'Test' });
+  test('can create', async () => {
+    let person = await model.create({
+        firstName: 'Nadya',
+        lastName: 'Ilinskaya',
+        birthday: '07/11/1979',
+        likes: 'cats'
+      });
     expect(person).toBeDefined();
   });
 
-  xit('can read', () => {});
+  test('can read', async () => {
+    let query = {firstName: 'Nadya'}
+    let person = await model.getFromField(query);
+    expect(person).toBeDefined();
+  });
 
-  xit('can update', () => {});
 
-  xit('can delete', () => {});
 });
